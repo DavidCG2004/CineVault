@@ -6,7 +6,19 @@ Aplicación móvil/web híbrida para gestionar un catálogo personal de películ
 
 ## 📱 Capturas
 
-> _Agregar capturas de pantalla aquí_
+### Capturas de Pantalla
+
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 20px;">
+
+  <img src="https://github.com/user-attachments/assets/8ace0786-64d9-49cb-892c-7920cb791a7f" alt="Screenshot 1" style="width: 100%; border-radius: 10px;">
+  <img src="https://github.com/user-attachments/assets/7e1162d9-f693-49f4-8441-2b4fa809dc34" alt="Screenshot 2" style="width: 100%; border-radius: 10px;">
+  <img src="https://github.com/user-attachments/assets/e4ed8870-193f-4263-be3d-29e27df57d36" alt="Screenshot 3" style="width: 100%; border-radius: 10px;">
+  <img src="https://github.com/user-attachments/assets/7048323a-dfb5-4c18-b678-d98c176726d6" alt="Screenshot 4" style="width: 100%; border-radius: 10px;">
+  <img src="https://github.com/user-attachments/assets/5e102478-7e4a-45ef-80b2-11d72cb7560f" alt="Screenshot 5" style="width: 100%; border-radius: 10px;">
+
+</div>
+
+
 
 ---
 
@@ -207,4 +219,4 @@ ionic cap open android  # Abrir en Android Studio
 
 ## 📄 Licencia
 
-MIT © 2025 — Tu Nombre
+MIT © 2025 — Alexander David
