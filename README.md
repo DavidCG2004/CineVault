@@ -6,20 +6,6 @@ Aplicación móvil/web híbrida para gestionar un catálogo personal de películ
 
 ## 📱 Capturas
 
-## 📱 Capturas
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 24px 0;">
-  <img src="https://github.com/user-attachments/assets/8ace0786-64d9-49cb-892c-7920cb791a7f" 
-       alt="Pantalla 1" 
-       style="width: 100%; max-width: 280px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);">
-  
-  <img src="https://github.com/user-attachments/assets/7e1162d9-f693-49f4-8441-2b4fa809dc34" 
-       alt="Pantalla 2" 
-       style="width: 100%; max-width: 280px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);">
-  
-  <!-- Repite para las demás -->
-</div>
-
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 24px 0;">
 
   <img src="https://github.com/user-attachments/assets/8ace0786-64d9-49cb-892c-7920cb791a7f" 
