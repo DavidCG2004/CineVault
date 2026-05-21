@@ -6,24 +6,23 @@ Aplicación móvil/web híbrida para gestionar un catálogo personal de películ
 
 ## 📱 Capturas
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 24px 0;">
-
-  <img src="https://github.com/user-attachments/assets/8ace0786-64d9-49cb-892c-7920cb791a7f" 
-       alt="Pantalla 1" style="width: 100%; max-width: 260px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-
-  <img src="https://github.com/user-attachments/assets/7e1162d9-f693-49f4-8441-2b4fa809dc34" 
-       alt="Pantalla 2" style="width: 100%; max-width: 260px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-
-  <img src="https://github.com/user-attachments/assets/e4ed8870-193f-4263-be3d-29e27df57d36" 
-       alt="Pantalla 3" style="width: 100%; max-width: 260px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-
-  <img src="https://github.com/user-attachments/assets/7048323a-dfb5-4c18-b678-d98c176726d6" 
-       alt="Pantalla 4" style="width: 100%; max-width: 260px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-
-  <img src="https://github.com/user-attachments/assets/5e102478-7e4a-45ef-80b2-11d72cb7560f" 
-       alt="Pantalla 5" style="width: 100%; max-width: 260px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-
-</div>
+<table>
+  <tr>
+    <td align="center"><b>Pantalla 1</b></td>
+    <td align="center"><b>Pantalla 2</b></td>
+    <td align="center"><b>Pantalla 3</b></td>
+  </tr>
+  <tr>
+    <td><img width="220" src="https://github.com/user-attachments/assets/8ace0786-64d9-49cb-892c-7920cb791a7f" /></td>
+    <td><img width="220" src="https://github.com/user-attachments/assets/7e1162d9-f693-49f4-8441-2b4fa809dc34" /></td>
+    <td><img width="220" src="https://github.com/user-attachments/assets/e4ed8870-193f-4263-be3d-29e27df57d36" /></td>
+  </tr>
+  <tr>
+    <td><img width="220" src="https://github.com/user-attachments/assets/7048323a-dfb5-4c18-b678-d98c176726d6" /></td>
+    <td><img width="220" src="https://github.com/user-attachments/assets/5e102478-7e4a-45ef-80b2-11d72cb7560f" /></td>
+    <td></td>
+  </tr>
+</table>
 
 ---
 
