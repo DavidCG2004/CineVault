@@ -100,7 +100,7 @@ Todas las operaciones (SELECT, INSERT, UPDATE, DELETE) son públicas para uso en
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/cinevault.git
+git clone https://github.com/DavidCG2004/CineVault.git
 cd cinevault
 npm install
 ```
