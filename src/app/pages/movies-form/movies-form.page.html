@@ -1,0 +1,122 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/movies" text="" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="fw-bold">{{ movieId() ? 'Editar' : 'Nueva' }} Película</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  @if (isLoadingData()) {
+    <div class="loading-container">
+      <ion-spinner name="crescent" color="medium"></ion-spinner>
+    </div>
+  } @else {
+    <div class="form-wrapper">
+      <form [formGroup]="movieForm" (ngSubmit)="save()" class="modern-form">
+
+        <!-- Poster upload -->
+        <app-file-upload-field
+          label="Poster de la Película"
+          bucket="movie-posters"
+          accept="image/jpeg,image/png,image/webp"
+          [currentUrl]="movieForm.get('poster_url')?.value"
+          (fileUploaded)="onPosterUploaded($event)"
+        ></app-file-upload-field>
+
+        <ion-input
+          label="Título de la película"
+          labelPlacement="stacked"
+          fill="solid"
+          formControlName="title"
+          placeholder="Ej. Interstellar"
+        ></ion-input>
+
+        <ion-input
+          label="Director"
+          labelPlacement="stacked"
+          fill="solid"
+          formControlName="director"
+          placeholder="Ej. Christopher Nolan"
+        ></ion-input>
+
+        <ion-grid class="ion-no-padding">
+          <ion-row class="gap-row">
+            <ion-col>
+              <ion-input
+                type="number"
+                label="Año"
+                labelPlacement="stacked"
+                fill="solid"
+                formControlName="release_year"
+                placeholder="2024"
+              ></ion-input>
+            </ion-col>
+            <ion-col>
+              <ion-input
+                type="number"
+                label="Calificación"
+                labelPlacement="stacked"
+                fill="solid"
+                formControlName="rating"
+                placeholder="8.6"
+              ></ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-input
+          label="Género"
+          labelPlacement="stacked"
+          fill="solid"
+          formControlName="genre"
+          placeholder="Ej. Sci-Fi, Drama"
+        ></ion-input>
+
+        <ion-input
+          type="url"
+          label="URL del Trailer (YouTube / TikTok)"
+          labelPlacement="stacked"
+          fill="solid"
+          formControlName="trailer_url"
+          placeholder="https://youtube.com/watch?v=..."
+        ></ion-input>
+
+        <!-- Audio upload -->
+        <app-file-upload-field
+          label="Soundtrack de la Película"
+          bucket="movie-audio"
+          accept="audio/mpeg,audio/ogg,audio/wav"
+          [currentUrl]="movieForm.get('audio_url')?.value"
+          (fileUploaded)="onAudioUploaded($event)"
+        ></app-file-upload-field>
+
+        <ion-textarea
+          label="Sinopsis"
+          labelPlacement="stacked"
+          fill="solid"
+          formControlName="synopsis"
+          placeholder="Descripción..."
+          [autoGrow]="true"
+          rows="4"
+        ></ion-textarea>
+
+        <ion-button
+          expand="block"
+          class="submit-btn"
+          type="submit"
+          [disabled]="isSaving()"
+        >
+          @if (isSaving()) {
+            <ion-spinner name="dots"></ion-spinner>
+          } @else {
+            <ion-icon slot="start" name="save-outline"></ion-icon>
+            Guardar Película
+          }
+        </ion-button>
+
+      </form>
+    </div>
+  }
+</ion-content>

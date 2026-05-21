@@ -1,0 +1,62 @@
+<ion-content [fullscreen]="true">
+  <div class="splash-wrapper" [class.visible]="isVisible()" [class.leaving]="isLeaving()">
+
+    <!-- Fondo con partículas -->
+    <div class="bg-layer">
+      <div class="particle p1"></div>
+      <div class="particle p2"></div>
+      <div class="particle p3"></div>
+      <div class="particle p4"></div>
+      <div class="particle p5"></div>
+      <div class="particle p6"></div>
+    </div>
+
+    <!-- Film strip top -->
+    <div class="film-strip top">
+      @for (hole of holes; track $index) {
+        <div class="hole"></div>
+      }
+    </div>
+
+    <!-- Contenido central -->
+    <div class="splash-content">
+      <!-- Ícono cámara -->
+      <div class="icon-wrapper">
+        <div class="camera-body">
+          <div class="lens-outer">
+            <div class="lens-mid">
+              <div class="lens-inner"></div>
+            </div>
+          </div>
+          <div class="camera-flash"></div>
+        </div>
+        <div class="icon-ring ring-1"></div>
+        <div class="icon-ring ring-2"></div>
+      </div>
+
+      <!-- Texto -->
+      <div class="text-group">
+        <h1 class="app-title">
+          <span class="word w1">CINE</span><span class="word w2">VAULT</span>
+        </h1>
+        <p class="app-tagline">Tu colección de películas</p>
+        <div class="title-underline"></div>
+      </div>
+    </div>
+
+    <!-- Film strip bottom -->
+    <div class="film-strip bottom">
+      @for (hole of holes; track $index) {
+        <div class="hole"></div>
+      }
+    </div>
+
+    <!-- Loading dots -->
+    <div class="loading-dots">
+      <span class="dot d1"></span>
+      <span class="dot d2"></span>
+      <span class="dot d3"></span>
+    </div>
+
+  </div>
+</ion-content>

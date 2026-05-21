@@ -1,0 +1,139 @@
+.mini-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: rgba(20, 20, 20, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  padding-bottom: env(safe-area-inset-bottom);
+
+  &.visible {
+    transform: translateY(0);
+  }
+}
+
+// ── Barra de progreso ──────────────────────────────────
+.progress-track {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  position: relative;
+
+  &:hover { height: 5px; }
+  transition: height 0.2s ease;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--ion-color-primary);
+  transition: width 0.5s linear;
+  pointer-events: none;
+}
+
+// ── Body ───────────────────────────────────────────────
+.player-body {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px 12px;
+}
+
+// ── Poster ─────────────────────────────────────────────
+.player-poster {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.08);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .poster-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 20px;
+  }
+}
+
+// ── Info ───────────────────────────────────────────────
+.player-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  .player-title {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .player-time {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+}
+
+// ── Controles ──────────────────────────────────────────
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.ctrl-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+
+  &.play-pause {
+    width: 40px;
+    height: 40px;
+    background: var(--ion-color-primary);
+    color: #fff;
+    font-size: 20px;
+
+    &:active { transform: scale(0.93); }
+  }
+
+  &.close {
+    width: 32px;
+    height: 32px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 18px;
+
+    &:hover { background: rgba(255, 255, 255, 0.08); }
+  }
+}
+
+.ctrl-spinner {
+  width: 24px;
+  height: 24px;
+  color: var(--ion-color-primary);
+}

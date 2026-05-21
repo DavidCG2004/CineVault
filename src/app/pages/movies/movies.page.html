@@ -1,0 +1,81 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="fw-bold">Catálogo</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToForm()" color="dark">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding-horizontal">
+  <ion-header collapse="condense" class="ion-no-border">
+    <ion-toolbar>
+      <ion-title size="large" class="fw-bold">Películas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  @if (movieService.error()) {
+    <div class="error-container">
+      <p>{{ movieService.error() }}</p>
+      <ion-button fill="clear" (click)="movieService.loadMovies()">Reintentar</ion-button>
+    </div>
+  }
+
+  @if (movieService.isLoading() && movieService.movies().length === 0) {
+    <div class="loading-container">
+      <ion-spinner name="crescent" color="medium"></ion-spinner>
+    </div>
+  }
+
+  @if (movieService.movies().length > 0) {
+    <!-- Contenedor Grid Responsivo -->
+    <div class="movie-grid">
+      @for (movie of movieService.movies(); track movie.id) {
+        
+        <div class="movie-item">
+          <!-- Hacemos clic en la imagen para editar -->
+          <div class="image-wrapper" (click)="openDetail(movie)">
+            @defer (on viewport) {
+              <img [src]="movie.poster_url || 'assets/placeholder.jpg'" [alt]="movie.title" loading="lazy" />
+            } @placeholder {
+              <div class="img-skeleton"></div>
+            }
+            
+            <div class="rating-badge">
+              <ion-icon name="star"></ion-icon>
+              <span>{{ movie.rating | number:'1.1-1' }}</span>
+            </div>
+          </div>
+
+          <div class="movie-info">
+            <h2 class="title">{{ movie.title }}</h2>
+            <p class="subtitle">{{ movie.genre }} • {{ getYear(movie.release_year) }}</p>
+          </div>
+
+          <!-- Acciones explícitas del CRUD -->
+          <div class="movie-actions">
+            <button class="action-btn edit" (click)="goToForm(movie.id)">
+              <ion-icon name="create-outline"></ion-icon>
+            </button>
+            <button class="action-btn delete" (click)="confirmDelete(movie)">
+              <ion-icon name="trash-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+
+      }
+    </div>
+  }
+
+  @if (!movieService.isLoading() && movieService.movies().length === 0 && !movieService.error()) {
+    <div class="empty-state">
+      <p>No hay películas en el catálogo.</p>
+      <ion-button fill="outline" color="dark" (click)="goToForm()" shape="round">
+        Agregar Película
+      </ion-button>
+    </div>
+  }
+
+</ion-content>

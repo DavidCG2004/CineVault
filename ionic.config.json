@@ -1,0 +1,7 @@
+{
+  "name": "CineVault",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

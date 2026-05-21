@@ -1,0 +1,78 @@
+<div class="upload-field">
+  <label class="field-label">{{ label }}</label>
+
+  <!-- Preview de imagen -->
+  @if (isImage) {
+    <div class="image-preview" [class.has-file]="hasFile">
+      @if (previewUrl()) {
+        <img [src]="previewUrl()!" alt="Preview" />
+        <button class="clear-btn" (click)="clearFile()" [disabled]="isUploading()">
+          <ion-icon name="trash-outline"></ion-icon>
+        </button>
+      } @else {
+        <div class="empty-preview">
+          <ion-icon name="image-outline"></ion-icon>
+          <span>Sin imagen</span>
+        </div>
+      }
+    </div>
+  }
+
+  <!-- Preview de audio -->
+  @if (!isImage && fileName()) {
+    <div class="audio-preview">
+      <ion-icon name="musical-note-outline"></ion-icon>
+      <span class="audio-name">{{ fileName() }}</span>
+      @if (!isUploading()) {
+        <button class="clear-btn-inline" (click)="clearFile()">
+          <ion-icon name="close-circle-outline"></ion-icon>
+        </button>
+      }
+    </div>
+  }
+
+  <!-- Barra de progreso -->
+  @if (isUploading()) {
+    <div class="progress-bar-wrapper">
+      <div class="progress-bar-fill" [style.width.%]="progress()"></div>
+    </div>
+    <p class="upload-status">
+      <ion-spinner name="dots" class="status-spinner"></ion-spinner>
+      Subiendo... {{ progress() }}%
+    </p>
+  }
+
+  <!-- Éxito -->
+  @if (!isUploading() && progress() === 100) {
+    <p class="success-msg">
+      <ion-icon name="checkmark-circle-outline"></ion-icon>
+      Archivo subido correctamente
+    </p>
+  }
+
+  <!-- Error -->
+  @if (error()) {
+    <p class="error-msg">
+      <ion-icon name="close-circle-outline"></ion-icon>
+      {{ error() }}
+    </p>
+  }
+
+  <!-- Botón de selección -->
+  <label class="upload-btn" [class.disabled]="isUploading()">
+    @if (isUploading()) {
+      <ion-spinner name="crescent" class="btn-spinner"></ion-spinner>
+      Subiendo...
+    } @else {
+      <ion-icon name="cloud-upload-outline"></ion-icon>
+      {{ hasFile ? 'Cambiar archivo' : 'Seleccionar archivo' }}
+    }
+    <input
+      type="file"
+      [accept]="accept"
+      (change)="onFileSelected($event)"
+      [disabled]="isUploading()"
+      hidden
+    />
+  </label>
+</div>
